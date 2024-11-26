@@ -1,0 +1,19 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore environment variable file
+.env
+
+# Ignore IDE related files
+.vscode/
+
+# Ignore Git related files
+.gitconfig
+.gitignore
+.bash_history
