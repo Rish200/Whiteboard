@@ -1,8 +1,9 @@
+import os
 from flask import Flask, render_template, redirect, url_for, request
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')  # Make sure to set this in your environment variables
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -13,6 +14,10 @@ class User(UserMixin):
 @login_manager.user_loader
 def load_user(user_id):
     return User(user_id)
+
+@app.route('/')
+def home():
+    return 'Welcome to the Flask app!'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

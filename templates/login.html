@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="POST">
+        <label for="user_id">User ID:</label>
+        <input type="text" id="user_id" name="user_id" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    {% if current_user.is_authenticated %}
+        <p>Logged in as: {{ current_user.id }}</p>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% endif %}
+</body>
+</html>
